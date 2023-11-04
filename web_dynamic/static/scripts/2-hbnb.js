@@ -1,5 +1,8 @@
+const URL = 'http://0.0.0.0:5001/api/v1/status/';
+
 $(document).ready(function () {
 	let amenitiesID = [];
+	// Task 1
 	$('input[type="checkbox"]').change(function (e) {
 		let id = $(this).attr('data-id');
 		if ($(this).is(':checked')) {
@@ -19,4 +22,24 @@ $(document).ready(function () {
 			$('.amenities h4').append('...');
 		}
 	});
+
+	// Task 2
+	$.get(URL, function (data, status) {
+		if (status === 'success') {
+			$('#api_status').addClass('available ');
+		} else {
+			$('#api_status').removeClass('available ');
+		}
+	});
+	// $.ajax({
+	// 	type: 'GET',
+	// 	url: URL,
+	// 	success: function (response) {
+	// 		if (response.status === 'OK') {
+	// 			$('#api_status').addClass('available ');
+	// 		} else {
+	// 			$('#api_status').removeClass('available ');
+	// 		}
+	// 	},
+	// });
 });
