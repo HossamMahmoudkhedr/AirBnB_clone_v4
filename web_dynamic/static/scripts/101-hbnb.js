@@ -125,7 +125,6 @@ $(document).ready(function () {
 				for (const review of data) {
 					$('.reviews ul').append(`<li>${review.text}</li>`);
 				}
-				console.log($('.reviewSpan li'));
 				$('.hideReview').text('hide');
 			} else if ($('.hideReview').text('hide')) {
 				$('.reviews ul').empty();
